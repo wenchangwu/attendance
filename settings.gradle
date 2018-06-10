@@ -1,0 +1,6 @@
+rootProject.name = 'attendance'
+include 'bootstrap'
+include 'controller'
+include 'service'
+include 'dao'
+
