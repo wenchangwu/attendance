@@ -4,9 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
+
+import javax.annotation.Resource;
 
 @Controller
-public class DemoController {
+public class LoginController {
 
     @ResponseBody
     @RequestMapping("/test")
@@ -17,6 +20,11 @@ public class DemoController {
     @RequestMapping("/index.html")
     public ModelAndView theleaf(){
         return new ModelAndView("index");
+    }
+
+    @RequestMapping("/bluePrint")
+    public ModelAndView bluePrint(){
+        return new ModelAndView("bluePrint");
     }
 
     public static void main(String[] args){

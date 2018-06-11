@@ -1,3 +1,34 @@
-dependencies {
-    runtime("mysql:mysql-connector-java:5.1.6")
+plugins {
+    id "com.cuisongliu.plugin.mybatis-generator" version "0.9.6"
 }
+
+dependencies {
+    runtime 'mysql:mysql-connector-java:5.1.6'
+    compile 'org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.2'
+}
+
+mbg {
+    generatorFile = "src/test/resources/generatorConfig.xml"
+    overwrite = false
+    consoleable = true
+    jdbc {
+        driver = "com.mysql.jdbc.Driver"
+        url = "jdbc:mysql://127.0.0.1:3306/attendance?useSSL=false"
+        username = "root"
+        password = "12345"
+    }
+    xml {
+        resourcesProject = "src/main/resources"
+        javaProject = "src/main/java"
+        mapperPlugin = tk.mybatis.mapper.generator.MapperPlugin.class
+        mapperMapper = "com.cuisongliu.springboot.core.mapper.MyMapper"
+        mapperPackage = "com.lakala.mapper"
+        modelPackage = "com.lakala.entity"
+        xmlPackage = "com.lakala.mapper"
+        tableName = "tbl_user"
+        objectName = "User"
+    }
+}
+
+
+
